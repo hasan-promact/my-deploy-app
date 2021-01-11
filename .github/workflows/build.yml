@@ -4,8 +4,6 @@ name: Build Angular Project
 on:
   push:
     branches: [ master ]
-    tags:
-      - '*'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -41,4 +39,10 @@ jobs:
         with:
           name: deploy_dist
           path: dist
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: deploy_dist/my-deploy-app
       
