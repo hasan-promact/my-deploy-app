@@ -36,8 +36,9 @@ jobs:
         run: |
           npm i
           npm run build:prod
-      - name: Push Build to Releases
-        uses: ncipollo/release-action@v1
+      - name: Upload to Artifacts
+        uses: actions/upload-artifact@v1
         with:
-          artifacts: "dist/my-deploy-app/*"
-          token: ${{ secrets.TOKEN }}
+          name: deploy_dist
+          path: dist
+      
