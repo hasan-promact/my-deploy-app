@@ -38,5 +38,4 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           artifacts: "dist/my-deploy-app/*"
-          tag: v1.0.5
           token: ${{ secrets.TOKEN }}
